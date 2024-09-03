@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(
+			to bottom,
+			transparent,
+			rgb(var(--background-end-rgb))
+		)
+		rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+.cars {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-top: 150px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.car {
+	display: flex;
+	flex-direction: column;
+	width: 24%;
+	padding: 24px;
+	border-radius: 12px;
+	border: 1px solid lightcoral;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
+
+.car h4 {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+
+.car span {
+	font-size: 18px;
+}
+
+.car.active {
+	background: hwb(0 0% 100% / 0.13);
+}
+
+.years {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 40px;
+	top: 20px;
+}
+
+.year {
+	padding: 12px;
+	cursor: pointer;
+}
+
+.next {
+	padding: 12px;
+	background: lightgrey;
+	position: absolute;
+	right: 40px;
+	top: 20px;
+}
+
+.next:disabled {
+	opacity: 0.4;
+}
